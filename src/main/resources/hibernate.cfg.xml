@@ -1,27 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <!DOCTYPE hibernate-configuration PUBLIC
         "-//Hibernate/Hibernate Configuration DTD 7.0//EN"
         "http://hibernate.org/dtd/hibernate-configuration-7.0.dtd">
 
 <hibernate-configuration>
     <session-factory>
-        <!-- Database connection settings from environment variables -->
+        <!-- Database connection settings using environment variables -->
         <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
         <property name="hibernate.connection.url">${DATABASE_URL}</property>
         <property name="hibernate.connection.username">${DATABASE_USERNAME}</property>
         <property name="hibernate.connection.password">${DATABASE_PASSWORD}</property>
 
-        <!-- JDBC connection pool -->
+        <!-- Connection pool -->
         <property name="hibernate.connection.pool_size">5</property>
 
         <!-- SQL Dialect -->
         <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
 
-        <!-- Show executed SQL in console -->
+        <!-- Show SQL in console -->
         <property name="hibernate.show_sql">true</property>
 
-        <!-- Schema auto-update -->
+        <!-- Auto-update schema (use 'update' in dev only) -->
         <property name="hibernate.hbm2ddl.auto">update</property>
 
         <!-- Annotated entity classes -->
