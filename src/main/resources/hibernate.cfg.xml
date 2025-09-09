@@ -5,25 +5,21 @@
 
 <hibernate-configuration>
     <session-factory>
-        <!-- Database connection settings using environment variables -->
         <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
-        <property name="hibernate.connection.url">${DATABASE_URL}</property>
-        <property name="hibernate.connection.username">${DATABASE_USERNAME}</property>
-        <property name="hibernate.connection.password">${DATABASE_PASSWORD}</property>
 
-        <!-- Connection pool -->
+        <property name="hibernate.connection.url">jdbc:postgresql://dpg-d2s6vsre5dus73dbquug-a.oregon-postgres.render.com/student_data_rlhu</property>
+
+        <property name="hibernate.connection.username">student_data_rlhu_user</property>
+        <property name="hibernate.connection.password">kootVenHdnC6iZZ2IHzMFwJ56bWllbEZ</property>
+
         <property name="hibernate.connection.pool_size">5</property>
 
-        <!-- SQL Dialect -->
         <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
 
-        <!-- Show SQL in console -->
         <property name="hibernate.show_sql">true</property>
 
-        <!-- Auto-update schema (use 'update' in dev only) -->
         <property name="hibernate.hbm2ddl.auto">update</property>
 
-        <!-- Annotated entity classes -->
         <mapping class="com.indra.Student"/>
     </session-factory>
 </hibernate-configuration>
