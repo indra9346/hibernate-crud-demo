@@ -6,11 +6,11 @@
 
 <hibernate-configuration>
     <session-factory>
-        <!-- Database connection settings -->
+        <!-- Database connection settings from environment variables -->
         <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
-        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/PersonData</property>
-        <property name="hibernate.connection.username">postgres</property>
-        <property name="hibernate.connection.password">indra18</property>
+        <property name="hibernate.connection.url">${DATABASE_URL}</property>
+        <property name="hibernate.connection.username">${DATABASE_USERNAME}</property>
+        <property name="hibernate.connection.password">${DATABASE_PASSWORD}</property>
 
         <!-- JDBC connection pool -->
         <property name="hibernate.connection.pool_size">5</property>
@@ -21,11 +21,10 @@
         <!-- Show executed SQL in console -->
         <property name="hibernate.show_sql">true</property>
 
-        <!-- Schema auto-update (use 'update' in dev, never in prod) -->
+        <!-- Schema auto-update -->
         <property name="hibernate.hbm2ddl.auto">update</property>
 
         <!-- Annotated entity classes -->
         <mapping class="com.indra.Student"/>
     </session-factory>
-
 </hibernate-configuration>
